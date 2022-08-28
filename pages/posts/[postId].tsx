@@ -2,7 +2,6 @@ import Head from "next/head";
 import Date from "../../components/date";
 import Layout from "../../components/layout";
 import { getPostsIds, getPostData } from "../../utils/posts";
-import utilStyles from "../../styles/utils.module.css";
 
 export const getStaticPaths = () => ({
   paths: getPostsIds(),
@@ -23,8 +22,8 @@ export default function Post({ postData }) {
       </Head>
 
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <h1 className="text-lg">{postData.title}</h1>
+        <div className="text-gray-600">
           <Date dateString={postData.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

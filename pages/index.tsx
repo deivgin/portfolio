@@ -2,7 +2,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout, { siteTitle } from "../components/layout";
 import Date from "../components/date";
-import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData, PostData } from "../utils/posts";
 
 interface Props {
@@ -25,22 +24,22 @@ export default function Home({ postsData }: Props) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section className="text-lg">
         <p>
           I am learning how to use next js and create a supper simple blog app
           that I will proceed to improve on down the line.
         </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+      <section className="text-lg p-px">
+        <h2 className="text-3xl font-bold underline">Blog</h2>
+        <ul>
           {postsData.map(({ postId, date, title }) => (
-            <li className={utilStyles.listItem} key={postId}>
+            <li className="my-2" key={postId}>
               <Link href={`/posts/${postId}`}>
                 <a>{title}</a>
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small className="text-gray-500">
                 <Date dateString={date} />
               </small>
             </li>
