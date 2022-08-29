@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "./layout.module.css";
 import Link from "next/link";
 
 interface Props {
@@ -13,7 +12,7 @@ export const siteTitle = "Next.js Sample Website";
 
 export default function Layout({ children, home }: Props) {
   return (
-    <div className={styles.container}>
+    <div className="max-w-xl px-px mt-24 mb-12 mx-auto">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -29,7 +28,7 @@ export default function Layout({ children, home }: Props) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <header className="flex flex-column items-center">
         {home ? (
           <>
             <Image
@@ -68,7 +67,7 @@ export default function Layout({ children, home }: Props) {
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className="mt-12">
           <Link href="/">
             <a>← Back to home</a>
           </Link>
